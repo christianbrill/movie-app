@@ -10,27 +10,9 @@
         <a href="{{ path('movielist') }}">Go to movie list</a>
     </div>
 
-    <form action="" method="post">
-        <label for="title">Title</label>
-        <input type="text" id="title" placeholder="Movie title">
-
-        <label for="description">Description</label>
-        <input type="text" id="description" placeholder="Movie description">
-
-        <label for="director">Director</label>
-        <input type="text" id="director" placeholder="Movie director">
-
-        <label for="trailer">Trailer Link</label>
-        <input type="text" id="trailer" placeholder="Trailer Link">
-
-        <label for="length">Movie Length</label>
-        <input type="number" id="length" placeholder="Movie Length">
-
-        <label for="release">Release Year</label>
-        <input type="number" id="release" placeholder="Release Year">
-
-        <input type="submit" value="Submit" id="submit">
-    </form>
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
 {% endblock %}
 
 {% block stylesheets %}

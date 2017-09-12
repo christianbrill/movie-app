@@ -13,6 +13,11 @@ class ShowMoviesController extends Controller
      */
     public function showMovieAction(Request $request)
     {
-        return $this->render('movies/show-movies.html.twig', array('page_title' => 'Movie List'));
+        $movies = $this->getDoctrine()->getManager()->getRepository('AppBundle:Movie')->findAll();
+
+        return $this->render('movies/show-movies.html.twig', array(
+            'page_title' => 'Movie List',
+            'movies' => $movies
+        ));
     }
 }

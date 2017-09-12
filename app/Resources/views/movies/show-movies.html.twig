@@ -16,21 +16,27 @@
             <tr>
                 <th>Title</th>
                 <th>Description</th>
-                <th>Director</th>
                 <th>Trailer</th>
                 <th>Length</th>
                 <th>Release Year</th>
             </tr>
         </thead>
         <tbody>
+            {% if movies|length == 0 %}
+                <tr>
+                    <td colspan="5">There are no movies in the database</td>
+                </tr>
+            {% endif %}
+
+            {% for movie in movies %}
             <tr>
-                <td>Queen of the Damned</td>
-                <td>The vampire Lestat becomes a rock star whose music wakes up the queen of all vampires.</td>
-                <td>Michael Rymer</td>
-                <td><a href="http://www.imdb.com/title/tt0238546/?ref_=nv_sr_4" target="_blank">Go to trailer</a></td>
-                <td><span>101</span> minutes</td>
-                <td>2002</td>
+                <td>{{ movie.title }}</td>
+                <td>{{ movie.description }}</td>
+                <td><a href="{{ movie.trailer }}" target="_blank">Go to trailer</a></td>
+                <td><span>{{ movie.length }}</span> minutes</td>
+                <td>{{ movie.released }}</td>
             </tr>
+            {% endfor %}
         </tbody>
     </table>
 {% endblock %}
